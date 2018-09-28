@@ -15,8 +15,7 @@ class ArrayDemo {
     printArray(ary2);
     //System.out.println("");
     System.out.println("countZeros2D should return 0 for an empty array");
-    System.out.println("then another 0 then 1 then 2 then 3. I counted 0s in int[] towards");
-    System.out.println("the final result");
+    System.out.println("then another 0 then 1 then 2 then 3.");
     int[][] ary3 = new int[][] {
       //empty
     };
@@ -43,14 +42,21 @@ class ArrayDemo {
     System.out.println(countZeros2D(ary4));
     System.out.println(countZeros2D(ary5));
     System.out.println(countZeros2D(ary6));
+    //now 2a, i know it's a bit messy but it's so late dont want to chage import junit.framework.TestCase;
+    System.out.println("Now let's test 2a. Let's give it ary2 and see what is returned");
+    fill2D(ary2);
+    printArray(ary2);
   }
   public static void printArray (int[] ary) {
     for (int i = 0; i<ary.length; i++) {
       if (i == ary.length-1) {
-        System.out.print(ary[i] + "\n");
+        System.out.print(ary[i] + "}" + "\n");
+      }
+      else if (i == 0) {
+        System.out.print("{" + ary[0] + ", ");
       }
       else {
-        System.out.print(ary[i] + " ");
+        System.out.print(ary[i] + ", ");
       }
     }
     //System.out.println("");
@@ -76,4 +82,18 @@ class ArrayDemo {
     }
     return result;
   }
+  public static void fill2D(int[][] vals){
+    for (int r = 0; r<vals.length; r++) {
+      for (int c = 0; c<vals[r].length; c++) {
+        if (r == c) {
+          vals[r][c] = 3;
+        }
+        else {
+          vals[r][c] = 1;
+        }
+      }
+    }
+  //  System.out.println(printArray(vals));
+  }
+
 }
